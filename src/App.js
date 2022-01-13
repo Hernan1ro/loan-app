@@ -5,6 +5,7 @@ import Formulario from "./components/Formulario";
 function App() {
   const [cantidad, setCantidad] = useState(0);
   const [plazo, setPlazo] = useState("");
+  const [total, setTotal] = useState(0);
 
   return (
     <>
@@ -15,7 +16,10 @@ function App() {
           setCantidad={setCantidad}
           plazo={plazo}
           setPlazo={setPlazo}
+          total={total}
+          setTotal={setTotal}
         />
+        <p>Total a pagar: ${total}</p>
       </div>
     </>
   );
