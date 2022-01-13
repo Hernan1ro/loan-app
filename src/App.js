@@ -1,11 +1,21 @@
 import React, { useState } from "react";
 import Header from "./components/Header";
 import Formulario from "./components/Formulario";
+import Mensaje from "./components/Mensaje";
+import Resultado from "./components/Resultado";
 
 function App() {
   const [cantidad, setCantidad] = useState(0);
   const [plazo, setPlazo] = useState("");
   const [total, setTotal] = useState(0);
+
+  let componente;
+
+  if (total === 0) {
+    componente = <Mensaje />;
+  } else {
+    componente = <Resultado />;
+  }
 
   return (
     <>
@@ -19,7 +29,7 @@ function App() {
           total={total}
           setTotal={setTotal}
         />
-        <p>Total a pagar: ${total}</p>
+        <div className="mensajes">{componente}</div>
       </div>
     </>
   );
