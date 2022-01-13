@@ -2,15 +2,8 @@ import React, { useState } from "react";
 import { calcularTotal } from "../helpers";
 
 const Formulario = (props) => {
-  const {
-    setCantidad,
-    cantidad,
-    plazo,
-    setPlazo,
-    total,
-    setTotal,
-    setCargando,
-  } = props;
+  const { setCantidad, cantidad, plazo, setPlazo, setTotal, setCargando } =
+    props;
   // definir state
 
   const [error, setError] = useState(false);
