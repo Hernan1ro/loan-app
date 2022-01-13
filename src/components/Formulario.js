@@ -18,7 +18,7 @@ const Formulario = ({ setCantidad, cantidad, plazo, setPlazo }) => {
     setError(false);
     // Realizar la cotización
 
-    calcularTotal(cantidad, plazo);
+    const total = calcularTotal(cantidad, plazo);
   };
   return (
     <>
