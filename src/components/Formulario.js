@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Formulario = () => {
+const Formulario = ({ setCantidad, cantidad }) => {
+  // Definir el state
+
+  const leerCantidad = (e) => {
+    setCantidad(parseInt(e.target.value));
+  };
+
   return (
     <form>
+      {cantidad}
       <div className="row">
         <div>
           <label>Cantidad Prestamo</label>
@@ -10,6 +17,7 @@ const Formulario = () => {
             className="u-full-width"
             type="number"
             placeholder="Ejemplo: 3000"
+            onChange={leerCantidad}
           />
         </div>
         <div>
