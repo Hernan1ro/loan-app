@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 
-const Formulario = ({ setCantidad, cantidad }) => {
+const Formulario = ({ setCantidad, cantidad, plazo, setPlazo }) => {
   // Definir el state
-
-  const leerCantidad = (e) => {
-    setCantidad(parseInt(e.target.value));
+  const calcularPrestamo = (e) => {
+    e.preventDefault();
+    // Validar formulario
+    if (cantidad === 0 || plazo === "") {
+      console.log("Hay un error");
+    }
   };
-
   return (
-    <form>
-      {cantidad}
+    <form onSubmit={calcularPrestamo}>
       <div className="row">
         <div>
           <label>Cantidad Prestamo</label>
@@ -17,12 +18,19 @@ const Formulario = ({ setCantidad, cantidad }) => {
             className="u-full-width"
             type="number"
             placeholder="Ejemplo: 3000"
-            onChange={leerCantidad}
+            onChange={(e) => {
+              setCantidad(parseInt(e.target.value));
+            }}
           />
         </div>
         <div>
           <label>Plazo para Pagar</label>
-          <select className="u-full-width">
+          <select
+            className="u-full-width"
+            onChange={(e) => {
+              setPlazo(parseInt(e.target.value));
+            }}
+          >
             <option value="">Seleccionar</option>
             <option value="3">3 meses</option>
             <option value="6">6 meses</option>
