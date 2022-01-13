@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = ({ titulo, descripcion }) => {
+const Header = ({ titulo }) => {
   return (
     <>
       <h1>{titulo}</h1>
